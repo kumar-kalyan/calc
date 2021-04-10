@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="./index.js"></script>
+    <title>Calculators & Convertors</title>
+  </head>
+  <header></header>
+  <style>
+      body{
+          padding-bottom: 80px;
+      }
+    .tam {
+      max-width: 400px;
+      align-items: center;
+      margin: auto;
+      padding-top: 30px;
+      display: block;
+    }
+    input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      
+      /* Firefox */
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
+      .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(221, 142, 201);
+   color: white;
+   text-align: center;
+}
+  </style>
+  <body>
+    <div class="w3-row">
+        <div class="tam">
+            <form id="wconvert3">
+                <div class="w3-container w3-pink">
+                  <h2>Convert Weight</h2>
+                </div>
+                <div class="w3-row-padding" style="margin: 0 -16px">
+                  <div class="w3-half w3-margin-top">
+                    <label>Pounds</label>
+                    <p></p>
+                    <input
+                      id="inputPounds"
+                      class="w3-input w3-border"
+                      type="number"
+                      placeholder="Pounds"
+                      oninput="weightConverter(this.id,this.value)"
+                      onchange="weightConverter(this.id,this.value)"
+                    />
+                  </div>
+                  <div class="w3-half w3-margin-top">
+                    <label>Kilograms</label>
+                    <p></p>
+                    <input
+                      id="inputKilograms"
+                      class="w3-input w3-border"
+                      type="number"
+                      placeholder="Kilograms"
+                      oninput="weightConverter(this.id,this.value)"
+                      onchange="weightConverter(this.id,this.value)"
+                    />
+                  </div>
+                  <div class="w3-half w3-margin-top">
+                    <label>Ounces</label>
+                    <p></p>
+                    <input
+                      id="inputOunces"
+                      class="w3-input w3-border"
+                      type="number"
+                      placeholder="Ounces"
+                      oninput="weightConverter(this.id,this.value)"
+                      onchange="weightConverter(this.id,this.value)"
+                    />
+                  </div>
+                  <div class="w3-half w3-margin-top">
+                    <label>Grams</label>
+                    <p></p>
+          
+                    <input
+                      id="inputGrams"
+                      class="w3-input w3-border"
+                      type="number"
+                      placeholder="Grams"
+                      oninput="weightConverter(this.id,this.value)"
+                      onchange="weightConverter(this.id,this.value)"
+                    />
+                  </div>
+                  <div class="w3-half w3-margin-top">
+                    <label>Stones</label>
+                    <p></p>
+          
+                    <input
+                      id="inputStones"
+                      class="w3-input w3-border"
+                      type="number"
+                      placeholder="Stones"
+                      oninput="weightConverter(this.id,this.value)"
+                      onchange="weightConverter(this.id,this.value)"
+                    />
+                  </div>
+                </div>
+                <p></p>
+              </form>
+              <button class="w3-btn w3-pink" onclick="clearfield()">Reset</button>
+             
+          </div>
+          <div class="tam">  <form id="wconvert2">
+            <div class="w3-container w3-purple">
+              <h2>Convert Temperature</h2>
+            </div>
+      
+            <div class="w3-row-padding" style="margin: 0 -16px">
+              <div class="w3-half w3-margin-top">
+                <label>Fahrenheit</label>
+                <input
+                  id="inputFahrenheit"
+                  class="w3-input w3-border"
+                  type="number"
+                  min="-459.66999999999996"
+                  placeholder="Fahrenheit"
+                  oninput="temperatureConverter(this.id,this.value)"
+                  onchange="temperatureConverter(this.id,this.value)"
+                />
+              </div>
+              <div class="w3-half w3-margin-top">
+                <label>Celsius</label>
+                <input
+                  id="inputCelsius"
+                  class="w3-input w3-border"
+                  type="number"
+                  min="-273.15"
+                  placeholder="Celsius"
+                  oninput="temperatureConverter(this.id,this.value)"
+                  onchange="temperatureConverter(this.id,this.value)"
+                />
+              </div>
+              <div class="w3-half w3-margin-top">
+                <label>Kelvin</label>
+                <input
+                  id="inputKelvin"
+                  class="w3-input w3-border"
+                  type="number"
+                  min="0"
+                  placeholder="Kelvin"
+                  oninput="temperatureConverter(this.id,this.value)"
+                  onchange="temperatureConverter(this.id,this.value)"
+                />
+              </div>
+            </div>
+            <p></p>
+          </form>
+          <button class="w3-btn w3-purple" onclick="clearfield()">Reset</button>
+       </div>
+        <div class="tam">
+          <form id="wconvertl">
+            <div class="w3-container w3-brown">
+              <h2>Convert Length</h2>
+            </div>
+    
+            <div class="w3-row-padding" style="margin: 0 -16px">
+              <div class="w3-half w3-margin-top">
+                <label>Feet</label>
+                <p></p>
+                <input
+                  id="inputFeet"
+                  class="w3-input w3-border"
+                  type="number"
+                  placeholder="Feet"
+                  oninput="lengthConverter(this.id,this.value)"
+                  onchange="lengthConverter(this.id,this.value)"
+                />
+              </div>
+              <div class="w3-half w3-margin-top">
+                <label>Meters</label>
+                <p></p>
+                <input
+                  id="inputMeters"
+                  class="w3-input w3-border"
+                  type="number"
+                  placeholder="Meters"
+                  oninput="lengthConverter(this.id,this.value)"
+                  onchange="lengthConverter(this.id,this.value)"
+                />
+              </div>
+              <div class="w3-half w3-margin-top">
+                <label>Inches</label>
+                <p></p>
+                <input
+                  id="inputInches"
+                  class="w3-input w3-border"
+                  type="number"
+                  placeholder="Inches"
+                  oninput="lengthConverter(this.id,this.value)"
+                  onchange="lengthConverter(this.id,this.value)"
+                />
+              </div>
+              <div class="w3-half w3-margin-top">
+                <label>cm</label>
+                <p></p>
+                <input
+                  id="inputcm"
+                  class="w3-input w3-border"
+                  type="number"
+                  placeholder="cm"
+                  oninput="lengthConverter(this.id,this.value)"
+                  onchange="lengthConverter(this.id,this.value)"
+                />
+              </div>
+              <div class="w3-half w3-margin-top">
+                <label>Yards</label>
+                <p></p>
+                <input
+                  id="inputYards"
+                  class="w3-input w3-border"
+                  type="number"
+                  placeholder="Yards"
+                  oninput="lengthConverter(this.id,this.value)"
+                  onchange="lengthConverter(this.id,this.value)"
+                />
+              </div>
+              <div class="w3-half w3-margin-top">
+                <label>Kilometers</label>
+                <p></p>
+                <input
+                  id="inputKilometers"
+                  class="w3-input w3-border"
+                  type="number"
+                  placeholder="Kilometers"
+                  oninput="lengthConverter(this.id,this.value)"
+                  onchange="lengthConverter(this.id,this.value)"
+                />
+              </div>
+              <div class="w3-half w3-margin-top">
+                <label>Miles</label>
+                <p></p>
+                <input
+                  id="inputMiles"
+                  class="w3-input w3-border"
+                  type="number"
+                  placeholder="Miles"
+                  oninput="lengthConverter(this.id,this.value)"
+                  onchange="lengthConverter(this.id,this.value)"
+                />
+              </div>
+            </div>
+            <p></p>
+          </form>
+          <button class="w3-btn w3-brown" onclick="clearfield()">Reset</button>
+        </div>
+        <div class="tam">
+          <form id="wconvert">
+            <div class="w3-container w3-grey">
+              <h2>Convert Speed</h2>
+            </div>
+    
+            <div class="w3-row-padding" style="margin: 0 -16px">
+              <div class="w3-half w3-margin-top">
+                <label>MPH</label>
+                <p></p>
+                <input
+                  id="inputMPH"
+                  class="w3-input w3-border"
+                  type="number"
+                  placeholder="MPH"
+                  oninput="speedConverter(this.id,this.value)"
+                  onchange="speedConverter(this.id,this.value)"
+                />
+              </div>
+              <div class="w3-half w3-margin-top">
+                <label>KPH</label>
+                <p></p>
+                <input
+                  id="inputKPH"
+                  class="w3-input w3-border"
+                  type="number"
+                  placeholder="KPH"
+                  oninput="speedConverter(this.id,this.value)"
+                  onchange="speedConverter(this.id,this.value)"
+                />
+              </div>
+              <div class="w3-half w3-margin-top">
+                <label>Knots</label>
+                <p></p>
+                <input
+                  id="inputKnots"
+                  class="w3-input w3-border"
+                  type="number"
+                  placeholder="Knots"
+                  oninput="speedConverter(this.id,this.value)"
+                  onchange="speedConverter(this.id,this.value)"
+                />
+              </div>
+              <div class="w3-half w3-margin-top">
+                <label>Mach</label>
+                <p></p>
+                <input
+                  id="inputMach"
+                  class="w3-input w3-border"
+                  type="number"
+                  placeholder="Mach"
+                  oninput="speedConverter(this.id,this.value)"
+                  onchange="speedConverter(this.id,this.value)"
+                />
+              </div>
+            </div>
+            <p></p>
+          </form>
+          <button class="w3-btn w3-grey" onclick="clearfield()">Reset</button>
+        </div>
+        <div class="tam">
+          <div class="w3-card-4">
+            <div class="w3-container w3-red">
+              <h2>Age Calculator</h2>
+            </div>
+            <form class="w3-container" id="age">
+              <h3 class="w3-text-blue">Please enter your date Of birth</h3>
+              <br />
+              <input class="w3-input" id="birth_date" type="date" />
+              <p></p>
+              <p></p>
+              <span id="message" style="color: blue"> </span>
+              <br /><br />
+              <h2 class="w3-text-blue" id="age_container">
+                <span id="exact_age">Age</span>
+              </h2>
+              <br />
+              <br />
+            </form>
+            <button class="w3-btn w3-red" id="calculate">Calculate</button>
+            <button class="w3-btn w3-red" onclick="clearfield()">reset</button>
+          </div>
+        </div>
+    </div>
+    
+  </body>
+  <footer>
+    <div class="footer">
+        <p>&copy;Kumar Kalyan</p>
+      </div>
+  </footer>
+</html>
